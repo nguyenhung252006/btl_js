@@ -8,12 +8,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nodemon src/index"
+    "dev": "nodemon src/index",
+    "git": "git clone https://github.com/nguyenhung252006/btl_js.git"
   },
   "dependencies": {
     "express": "^5.1.0",
     "express-handlebars": "^8.0.3",
-    "mysql2": "^3.14.1"
+    "mysql2": "^3.14.1",
+    "react": "^19.1.0"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

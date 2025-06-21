@@ -14,6 +14,7 @@ app.set('views', path.join(__dirname, './views'));
 
 //khai bao thu muc
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/js', express.static(path.join(__dirname, 'views/layouts/react')));
 
 //router
 router(app)
