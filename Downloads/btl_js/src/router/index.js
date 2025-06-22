@@ -5,7 +5,7 @@ function router(app) {
 
     app.use('/menu',menuRouter)
 
-    app.get('/', (req, res) => {
+    app.use('/', (req, res) => {
         res.render('home')
     })
 
