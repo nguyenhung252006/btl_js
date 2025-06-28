@@ -1,61 +1,42 @@
 <link rel="stylesheet" href="/css/menu.css">
-{{!-- bang menu --}}
+
 <div id="introduce">
-    <h1>khu vực: Hà Nội -- Miền Bắc</h1>
+    <h1>Khu vực: {{chuyenten chinhanh}}</h1>
+    <p>Thông tin chi nhánh: {{data.[0].ten_diachi}}</p>
 </div>
+<form id="filter-menu" method="post">
+    <input class="filter-input" type="hidden" name="ten" value="{{chinhanh}}">
+
+    <button class="filter-btn" type="submit" name="mota" value="Món Nướng">Món Nướng</button>
+    <button class="filter-btn" type="submit" name="mota" value="Món Ăn Kèm">Món Ăn Kèm</button>
+    <button class="filter-btn" type="submit" name="mota" value="Món Tráng Miệng">Món Tráng Miệng</button>
+    <button class="filter-btn" type="submit" name="mota" value="Đồ Uống">Đồ Uống</button>
+</form>
+
 <div id="container">
+    {{#each data}}
     <div class="card">
-        <img src="https://ipos.vn/wp-content/uploads/2022/10/CHUP-ANH-DO-AN.png" alt="anh do an" class="image-menu">
-        <h1 class="text-menu">thit bo</h1>
-        <p class="text-menu">nhap khau tu uc sang viet nam</p>
+        <img src="{{this.hinhanh}}" alt="anh do an" class="image-menu">
+        <div>
+            <h1 class="text-menu">{{this.ten_mon}} <span>({{dinhdang this.gia}} VNĐ)</span></h1>
+        </div>
+        <p class="text-menu">{{this.mota}}</p>
     </div>
-    <div class="card">
-        <img src="https://ipos.vn/wp-content/uploads/2022/10/CHUP-ANH-DO-AN.png" alt="anh do an" class="image-menu">
-        <h1 class="text-menu">thit bo</h1>
-        <p class="text-menu">nhap khau tu uc sang viet nam</p>
-    </div>
-    <div class="card">
-        <img src="https://ipos.vn/wp-content/uploads/2022/10/CHUP-ANH-DO-AN.png" alt="anh do an" class="image-menu">
-        <h1 class="text-menu">thit bo</h1>
-        <p class="text-menu">nhap khau tu uc sang viet nam</p>
-    </div>
-    <div class="card">
-        <img src="https://ipos.vn/wp-content/uploads/2022/10/CHUP-ANH-DO-AN.png" alt="anh do an" class="image-menu">
-        <h1 class="text-menu">thit bo</h1>
-        <p class="text-menu">nhap khau tu uc sang viet nam</p>
-    </div>
-    <div class="card">
-        <img src="https://ipos.vn/wp-content/uploads/2022/10/CHUP-ANH-DO-AN.png" alt="anh do an" class="image-menu">
-        <h1 class="text-menu">thit bo</h1>
-        <p class="text-menu">nhap khau tu uc sang viet nam</p>
-    </div>
-    <div class="card">
-        <img src="https://ipos.vn/wp-content/uploads/2022/10/CHUP-ANH-DO-AN.png" alt="anh do an" class="image-menu">
-        <h1 class="text-menu">thit bo</h1>
-        <p class="text-menu">nhap khau tu uc sang viet nam</p>
-    </div><div class="card">
-        <img src="https://ipos.vn/wp-content/uploads/2022/10/CHUP-ANH-DO-AN.png" alt="anh do an" class="image-menu">
-        <h1 class="text-menu">thit bo</h1>
-        <p class="text-menu">nhap khau tu uc sang viet nam</p>
-    </div>
-    <div class="card">
-        <img src="https://ipos.vn/wp-content/uploads/2022/10/CHUP-ANH-DO-AN.png" alt="anh do an" class="image-menu">
-        <h1 class="text-menu">thit bo</h1>
-        <p class="text-menu">nhap khau tu uc sang viet nam</p>
-    </div>
-    <div class="card">
-        <img src="https://ipos.vn/wp-content/uploads/2022/10/CHUP-ANH-DO-AN.png" alt="anh do an" class="image-menu">
-        <h1 class="text-menu">thit bo</h1>
-        <p class="text-menu">nhap khau tu uc sang viet nam</p>
-    </div>
-    <div class="card">
-        <img src="https://ipos.vn/wp-content/uploads/2022/10/CHUP-ANH-DO-AN.png" alt="anh do an" class="image-menu">
-        <h1 class="text-menu">thit bo</h1>
-        <p class="text-menu">nhap khau tu uc sang viet nam</p>
-    </div>
-    <div class="card">
-        <img src="https://ipos.vn/wp-content/uploads/2022/10/CHUP-ANH-DO-AN.png" alt="anh do an" class="image-menu">
-        <h1 class="text-menu">thit bo</h1>
-        <p class="text-menu">nhap khau tu uc sang viet nam</p>
-    </div>
+    {{/each}}
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = $('#filter-menu')
+        const button = $$('.filter-btn')
+        const chinhanh = $('.filter-input').value
+
+        button.forEach((item,index) => {
+            item.addEventListener('click', (event) => {
+                mota = event.target.value
+                form.action =`/menu/${chinhanh}/${mota}`
+            })
+        })
+        
+    })
+</script>

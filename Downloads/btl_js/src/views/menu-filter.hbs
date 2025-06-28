@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/menu.css">
+
+<div id="introduce">
+    <h1>Khu vực: {{chuyenten chinhanh}}</h1>
+    <p>Thông tin chi nhánh: {{data.[0].ten_diachi}}</p>
+</div>
+
+
+<div id="container">
+    {{#each data}}
+    <div class="card">
+        <img src="{{this.hinhanh}}" alt="anh do an" class="image-menu">
+        <div>
+            <h1 class="text-menu">{{this.ten_mon}} <span>({{dinhdang this.gia}} VNĐ)</span></h1>
+        </div>
+        <p class="text-menu">{{this.mota}}</p>
+    </div>
+    {{/each}}
+</div>
+
+

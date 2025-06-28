@@ -5,11 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gyu-Kaku Vietnam</title>
-     <link rel="stylesheet" href="/css/home.css" />
-     <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/menu.css">
 </head>
 
-<body>  
+<body>
     <header>
         <div class="logo">
             <a href="/">
@@ -20,7 +20,16 @@
         <nav>
             <a href="#" class="btn">Đặt Bàn</a>
             <a href="#">Về chúng tôi</a>
-            <a href="/menu">Menu</a>
+            <div id="menu">Menu
+                <form id="form-menu" action="" method="POST">
+                    <ul class="select">
+                        <li><button type="submit" name="ten" value="HaNoi" class="button-menu-submit">Hà Nội</button>
+                        </li>
+                        <li><button type="submit" name="ten" value="HCM" class="button-menu-submit">Hồ Chí Minh</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
             <a href="#">Nhà hàng</a>
             <a href="#">Khuyến mãi</a>
         </nav>
@@ -40,5 +49,24 @@
         <p><strong>ĐƠN VỊ PHỤ TRÁCH:</strong> LGBBQ VIỆT NAM</p>
     </footer>
 </body>
+<script type="module" src="/app/menuApp.js"></script>
+<script>
+
+    const $ = document.querySelector.bind(document)
+    const $$ = document.querySelectorAll.bind(document)
+    const button = $$('.button-menu-submit')
+    const form = $('#form-menu')
+
+    var diachi;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        button.forEach((item, index) => {
+            item.addEventListener('click', (event) => {
+                diachi = event.target.value
+                form.action = `/menu/${diachi}`
+            })
+        })
+    })
+</script>
 
 </html>

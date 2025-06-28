@@ -9,8 +9,18 @@ body {
   color: white;
 }
 
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: white;
+}
 
-nav a {
+#menu {
+  margin-top: 5.5px;
+}
+
+nav a,div {
   display: grid;
   place-items: center;
 }
@@ -43,7 +53,7 @@ nav {
   margin-right: 10%;
 }
 
-nav a {
+nav a,div {
   color: white;
   text-decoration: none;
 }
