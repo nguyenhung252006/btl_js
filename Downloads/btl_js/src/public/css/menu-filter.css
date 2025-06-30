@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+#container {
+    width: 80%;
+    max-height: 300px;
+    border: 2px solid #4f4444;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    margin: 80px auto;
+    border-radius: 18px;
+    scrollbar-width: none
+}
+
+.card {
+    width: calc((100% - 20px) / 3);
+    height: 280px;
+    background-image: url('../img/backgroud-menu.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid #635d5d;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    text-align: center;
+}
+
+
+.text-menu {
+    color: rgb(161, 157, 157);
+    margin-top: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    display: block;
+    border-radius: 18px;
+    border: 2px solid #726d6d;
+}
+
+.card div {
+    font-size: 10px;
+
+}
+
+.card span {
+    color: red;
+}
+
+#introduce>* {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.select {
+    position: absolute;
+    top: 30px;
+    background-color: #635d5d;
+    width: 300%;
+    list-style-type: none;
+    left: -2px;
+    border: 1px solid white;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.select li {
+    padding: 8px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.select .button-menu-submit {
+    border-bottom: 1px solid white;
+}
+
+.select.show {
+    max-height: 200px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.select li:hover {
+    background-color: rgb(70, 99, 70);
+    color: black;
+}
+
+#filter-menu {
+    display: flex;
+    max-width: 80%;
+    margin: 0 auto;
+    justify-content: space-around;
+    margin-top: 80px;
+}
+
+#filter-menu button {
+    font-size: 16px;
+    color: #635d5d;
+}

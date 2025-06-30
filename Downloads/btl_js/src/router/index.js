@@ -1,10 +1,10 @@
 const menuRouter = require ('./menuRouter.js')
 const admRouter = require('./admRouter.js')
-const admListController = require('./admListRouter.js')
+const admListRouter = require('./admListRouter.js')
 
 
 function router(app) {
-    app.use('/adm/list',admListController)
+    app.use('/adm/list',admListRouter)
 
     app.use('/adm',admRouter)
 
